@@ -6,7 +6,9 @@ cache:
   - bugzilla
 install:
   - sudo apt-get update
-  - sudo apt-get -y install build-essential g++ graphviz libdaemon-generic-perl libgd-dev libssl-dev mod_perl perlmagick pkg-config unzip
+  - sudo apt-get -y install build-essential g++ graphviz libdaemon-generic-perl libgd2-xpm-dev libssl-dev mod_perl perlmagick pkg-config unzip
   - git clone --branch production --depth 10 https://git.mozilla.org/webtools/bmo/bugzilla.git bugzilla
   - pip install -r requirements.txt
+before_scipt:
+  - cd bugzilla; ./install-module.pl --all
 script: python setup.py develop && py.test tests
