@@ -6,10 +6,10 @@ cache:
   - bugzilla
 install:
   - sudo apt-get update
-  - sudo apt-get -y install build-essential g++ graphviz libapache2-mod-perl2 libdaemon-generic-perl libssl-dev perlmagick pkg-config unzip
+  - sudo apt-get -y install build-essential g++ graphviz libapache2-mod-perl2 libssl-dev perlmagick pkg-config unzip
   - sudo apt-get -y install libchart-perl libclass-dbi-mysql-perl libclass-loader-perl libcrypt-blowfish-perl libcrypt-des-ede3-perl libcrypt-des-perl libcrypt-ecb-perl libcrypt-gpg-perl libcrypt-smime-perl libcrypt-twofish-perl libdata-buffer-perl libdatetime-perl libdatetime-timezone-perl libemail-mime-perl libemail-send-perl libfile-homedir-perl libfile-which-perl libgd-graph-perl libhtml-parser-perl libhtml-scrubber-perl libjson-perl libjson-rpc-perl libjson-xs-perl liblist-moreutils-perl libmath-random-isaac-perl libmodule-build-perl libnet-ldap-perl libtimedate-perl libdigest-sha-perl libregexp-common-perl libtemplate-perl libtest-taint-perl libtext-diff-perl liburi-perl libxml-twig-perl libyaml-perl
   - git clone --branch production --depth 10 https://git.mozilla.org/webtools/bmo/bugzilla.git bugzilla
-  - cd bugzilla && ./install-module.pl Crypt::CBC Crypt::OpenPGP Encode::Detect SOAP::Lite && cd ..
+  - cd bugzilla && ./install-module.pl Crypt::CBC Crypt::OpenPGP Daemon::Generic Encode::Detect SOAP::Lite && cd ..
   - pip install -r requirements.txt
 before_script:
   - cd bugzilla && ./checksetup.pl && cd ..
