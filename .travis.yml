@@ -7,7 +7,7 @@ cache:
 install:
   - sudo apt-get update
   - sudo apt-get -y install build-essential g++ graphviz libapache2-mod-perl2 libdaemon-generic-perl libssl-dev perlmagick pkg-config unzip
-  - sudo apt-get -y install libchart-perl libclass-dbi-mysql-perl libemail-mime-perl libemail-send-perl libgd-perl libgd-graph-perl liblist-moreutils-perl libtimedate-perl libdigest-sha-perl libtemplate-perl liburi-perl libxml-twig-perl
+  - sudo apt-get -y install libchart-perl libclass-dbi-mysql-perl libemail-mime-perl libemail-send-perl libgd-graph-perl liblist-moreutils-perl libnet-ldap-perl libtimedate-perl libdigest-sha-perl libtemplate-perl liburi-perl libxml-twig-perl
   - git clone --branch production --depth 10 https://git.mozilla.org/webtools/bmo/bugzilla.git bugzilla
   - pip install -r requirements.txt
 before_script:
