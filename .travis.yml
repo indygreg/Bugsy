@@ -2,5 +2,11 @@ language: python
 python:
   - 2.6
   - 2.7
-install: pip install -r requirements.txt
+cache:
+  - bugzilla
+install:
+  - sudo apt-get update
+  - sudo apt-get -y install build-essential g++ graphviz libdaemon-generic-perl libgd-dev libssl-dev mod_perl perlmagick pkg-config unzip
+  - git clone --branch production --depth 10 https://git.mozilla.org/webtools/bmo/bugzilla.git bugzilla
+  - pip install -r requirements.txt
 script: python setup.py develop && py.test tests
